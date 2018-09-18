@@ -22,11 +22,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Getter
 @Setter
 @ConfigurationProperties(prefix = "azure.cosmosdb")
+//@ConfigurationProperties("vcap.services.cosmosdb.credentials")
 public class DocumentDbProperties {
 
     private String uri;
-
     private String key;
-
     private String database;
+
+//    private String cosmosdbHostEndpoint;
+//    private String cosmosdbMasterKey;
+//    private String cosmosdbDatabaseId;
 }

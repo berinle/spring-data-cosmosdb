@@ -1,0 +1,6 @@
+---
+azure:
+  cosmosdb:
+    uri: ${vcap.services.cosmosdb.credentials.cosmosdbHostEndpoint}
+    key: ${vcap.services.cosmosdb.credentials.cosmosdbMasterKey}
+    database: ${vcap.services.cosmosdb.credentials.cosmosdbDatabaseId}

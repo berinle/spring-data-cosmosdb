@@ -1,0 +1,13 @@
+---
+applications:
+  - name: cosmosdb-app
+    random-route: true
+    buildpack: java_buildpack_offline
+    memory: 1G
+    path: example/target/spring-data-cosmosdb-example-2.0.5-SNAPSHOT.jar
+    services:
+    - cosmosdb
+    env:
+      SPRING_PROFILES_ACTIVE: cloud
+      JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
+

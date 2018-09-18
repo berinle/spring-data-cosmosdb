@@ -27,7 +27,7 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 @EnableDocumentDbRepositories
 @EnableConfigurationProperties(DocumentDbProperties.class)
-@PropertySource("classpath:application.properties")
+//@PropertySource("classpath:application.properties")
 public class UserRepositoryConfiguration extends AbstractDocumentDbConfiguration {
 
     @Autowired
@@ -35,6 +35,21 @@ public class UserRepositoryConfiguration extends AbstractDocumentDbConfiguration
 
     @Override
     public DocumentDBConfig getConfig() {
-        return DocumentDBConfig.builder(properties.getUri(), properties.getKey(), properties.getDatabase()).build();
+//        return DocumentDBConfig.builder(properties.getUri(), properties.getKey(), properties.getDatabase()).build();
+        assert properties != null;
+
+        /*System.out.println("got here *** ");
+
+        System.out.println("properties = " + properties);
+        System.out.println("properties.getCosmosdbDatabaseId() = " + properties.getCosmosdbDatabaseId());
+        System.out.println("properties.getCosmosdbHostEndpoint() = " + properties.getCosmosdbHostEndpoint());
+        System.out.println("properties.getCosmosdbMasterKey() = " + properties.getCosmosdbMasterKey());*/
+
+        DocumentDBConfig config = DocumentDBConfig.builder(properties.getUri(),
+                properties.getKey(), properties.getDatabase()).build();
+
+        System.out.println("config = " + config);
+
+        return config;
     }
 }
